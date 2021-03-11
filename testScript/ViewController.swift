@@ -13,6 +13,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // ara
         // amigo cavjron
+        // amidza
         // Do any additional setup after loading the view.
     }
 
