@@ -1,4 +1,4 @@
-IN_HOME_BRANCH="master"
+IN_HOME_BRANCH="develop_test"
 DEVELOP_BRANCH="develop"
 REMOTE="origin"
 
