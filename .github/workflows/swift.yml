@@ -1,13 +1,9 @@
 name: Auto push to develop-in-home on develop update
 
-IN_HOME_BRANCH="develop_test"
-
-DEVELOP_BRANCH="develop"
-
 on:
      push:
          branches:
-             - "$DEVELOP_BRANCH"
+             - develop
 
 jobs:
      rebase-in-home:
@@ -15,12 +11,16 @@ jobs:
          steps:
              - name: Checkout
                uses: actions/checkout@v1 
+             - name: Step one
+               run: |
+                 echo "branch_one=develop" >> $GITHUB_ENV
+                 echo "branch_two=develop_test" >> $GITHUB_ENV
              - name: Rebase in-home
                run: |
-                 git checkout "$IN_HOME_BRANCH"
-                 git rebase origin/develop
+                 git checkout env.branch_two
+                 git rebase origin/evn.branch_one
              - name: Push rebased in-home
                uses: ad-m/github-push-action@master
                with:
-                   branch: "$IN_HOME_BRANCH"
+                   branch: env.branch_two
                    github_token: ${{ secrets.GITHUB_TOKEN }}
