@@ -9,13 +9,12 @@ jobs:
          steps:
              - name: Checkout
                uses: actions/checkout@v1
-             - name: Preparation
+             - name: Rebase in-home
                run: |
                  IN_HOME_BRANCH="develop_test"
                  DEVELOP_BRANCH="develop"
                  REMOTE="origin"
-             - name: Rebase in-home
-               run: |
+                 
                  git checkout "$IN_HOME_BRANCH"
                  CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
                  
