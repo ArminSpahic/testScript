@@ -12,6 +12,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // ara
+        // amigo cavjron
         // Do any additional setup after loading the view.
     }
 
