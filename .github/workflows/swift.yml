@@ -16,5 +16,5 @@ jobs:
              - name: Push rebased in-home
                uses: ad-m/github-push-action@master
                with:
-                   branch: main
+                   branch: ${{ github.ref }}
                    github_token: ${{ secrets.GITHUB_TOKEN }}
