@@ -1,14 +1,18 @@
 name: Auto push to develop-in-home on develop update
+
 on:
      push:
          branches:
              - develop
+
 jobs:
      rebase-in-home:
          runs-on: ubuntu-latest
          steps:
              - name: Checkout
-               uses: actions/checkout@v1
+               uses: actions/checkout@v1 
+             - name: Rebase in-home
+               run: scripts/rebase-in-home
              - name: Push rebased in-home
                uses: ad-m/github-push-action@master
                with:
