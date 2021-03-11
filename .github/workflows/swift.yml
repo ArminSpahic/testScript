@@ -14,7 +14,7 @@ jobs:
              - name: Rebase in-home
                run: |
                  git checkout develop_test
-                 git rebase develop
+                 git rebase origin/develop
              - name: Push rebased in-home
                uses: ad-m/github-push-action@master
                with:
