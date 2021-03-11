@@ -9,25 +9,8 @@ jobs:
          steps:
              - name: Checkout
                uses: actions/checkout@v1
-             - name: Rebase in-home
-               run: |
-                 IN_HOME_BRANCH="develop_test"
-                 DEVELOP_BRANCH="develop"
-                 REMOTE="origin"
-                 
-                 git checkout "$IN_HOME_BRANCH"
-                 CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
-                 
-                 echo "Current branch is: $CURRENT_BRANCH"
-                 
-                 if [ git rev-parse --abbrev-ref HEAD != develop_test ]; then
-                 echo "Current branch is \"$CURRENT_BRANCH\" and not \"$IN_HOME_BRANCH\"!"
-                 exit 1
-                 fi
-                 
-                 git rebase "$REMOTE/$DEVELOP_BRANCH"
              - name: Push rebased in-home
                uses: ad-m/github-push-action@master
                with:
-                   branch: ${{ github.ref }}
+                   branch: develop_test
                    github_token: ${{ secrets.GITHUB_TOKEN }}
